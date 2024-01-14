@@ -93,17 +93,18 @@ For example, to make SPC do the same as ?a, use
           (function :tag "Custom")))
 
 (defcustom aw-minibuffer-flag nil
-  "When non-nil, also display `ace-window-mode' string in the minibuffer when ace-window is active."
+  "When non-nil, also display `ace-window-mode' string in the minibuffer
+  when ace-window is active."
   :type 'boolean)
 
 (defcustom aw-ignored-buffers '("*Calc Trail*" " *LV*")
-  "List of buffers and major-modes to ignore when choosing a window from the window list.
-Active only when `aw-ignore-on' is non-nil."
+  "List of buffers and major-modes to ignore when choosing a window from the
+  window list. Active only when `aw-ignore-on' is non-nil."
   :type '(repeat string))
 
 (defcustom aw-ignore-on t
-  "When t, `ace-window' will ignore buffers and major-modes in `aw-ignored-buffers'.
-Use M-0 `ace-window' to toggle this value."
+  "When t, `ace-window' will ignore buffers and major-modes in
+  `aw-ignored-buffers'. Use M-0 `ace-window' to toggle this value."
   :type 'boolean)
 
 (defcustom aw-ignore-current nil
@@ -121,9 +122,9 @@ Use M-0 `ace-window' to toggle this value."
           (const :tag "full path" 'path)))
 
 (defcustom aw-dispatch-always nil
-  "When non-nil, `ace-window' will issue a `read-char' even for one window.
-This will make `ace-window' act different from `other-window' for
-  one or two windows."
+  "When non-nil, `ace-window' will issue a `read-char' even for
+  one window. This will make `ace-window' act different from
+  `other-window' for one or two windows."
   :type 'boolean)
 
 (defcustom aw-dispatch-when-more-than 2
@@ -136,8 +137,8 @@ the reverse of `frame-list'"
   :type 'boolean)
 
 (defcustom aw-frame-offset '(13 . 23)
-  "Increase in pixel offset for new ace-window frames relative to the selected frame.
-Its value is an (x-offset . y-offset) pair in pixels."
+  "Increase in pixel offset for new ace-window frames relative to the
+  selected frame. Its value is an (x-offset . y-offset) pair in pixels."
   :type '(cons integer integer))
 
 (defcustom aw-frame-size nil
@@ -174,7 +175,8 @@ Consider changing this if the overlay tends to overlap with other things."
 Each action is a list of either:
   (char function description) where function takes a single window argument
 or
-  (char function) where function takes no argument and the description is omitted.")
+  (char function) where function takes no argument and the
+  description is omitted.")
 
 (defun aw-set-make-frame-char (option value)
   ;; Signal an error if `aw-make-frame-char' is ever set to an invalid
@@ -189,7 +191,8 @@ or
   (set option value))
 
 (defcustom aw-make-frame-char ?z
-  "Non-existing ace window label character that triggers creation of a new single-window frame for display."
+  "Non-existing ace window label character that triggers creation of a new single-window
+  frame for display."
   :set 'aw-set-make-frame-char
   :type 'character)
 
@@ -447,7 +450,8 @@ LEAF is (PT . WND)."
   (assoc char aw-dispatch-alist))
 
 (defun aw-make-frame ()
-  "Make a new Emacs frame using the values of `aw-frame-size' and `aw-frame-offset'."
+  "Make a new Emacs frame using the values of `aw-frame-size'
+  and `aw-frame-offset'."
   (make-frame
    (delq nil
          (list
